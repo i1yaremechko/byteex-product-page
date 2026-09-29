@@ -1,0 +1,28 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 369px;
+  height: 56px;
+  margin-inline: auto;
+  border-radius: var(--radius-sm);
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-family: var(--font-secondary), system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background: color-mix(in srgb, var(--color-navy) 85%, white);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
