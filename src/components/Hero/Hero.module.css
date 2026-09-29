@@ -1,0 +1,113 @@
+.hero {
+  padding-inline: 20px;
+}
+
+.title {
+  max-width: 351px;
+  margin-inline: auto;
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--color-navy);
+}
+
+/* Collage proportions come from the 380x217 Figma group, so it scales with width. */
+.gallery {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 380 / 217;
+  margin: 20px auto 0;
+}
+
+.band {
+  position: absolute;
+  top: 27.9%;
+  width: 18.4%;
+  height: 46.1%;
+  background: linear-gradient(to top, rgb(249 240 229 / 0.7), rgb(249 240 229 / 0.217));
+}
+
+.bandLeft {
+  left: 0;
+}
+
+.bandRight {
+  right: 0;
+}
+
+.photo {
+  position: absolute;
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+
+.left,
+.right {
+  top: 12%;
+  width: 22.9%;
+  height: 76.5%;
+}
+
+.left {
+  left: 9.2%;
+}
+
+.right {
+  left: 68%;
+}
+
+.center {
+  top: 0;
+  left: 32.6%;
+  z-index: 1;
+  width: 34.7%;
+  height: 100%;
+  border: 1.5px solid var(--color-border);
+}
+
+.benefits {
+  display: grid;
+  gap: 22px;
+  max-width: 388px;
+  margin: 26px auto 0;
+  padding: 0 27px;
+  list-style: none;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 36px;
+}
+
+.icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  background: var(--color-cream);
+}
+
+.benefitText {
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+}
+
+.cta {
+  margin-top: 30px;
+}
+
+.review {
+  margin-top: 31px;
+}
