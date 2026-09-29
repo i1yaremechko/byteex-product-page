@@ -1,0 +1,51 @@
+:root {
+  /* Design tokens (extracted from the Figma mobile frame) */
+  --color-navy: #01005b;
+  --color-indigo: #2a2996;
+  --color-cream: #f9f0e5;
+  --color-surface: #f0eeef;
+  --color-text: #676869;
+  --color-text-muted: #828282;
+  --color-text-label: #868787;
+  --color-announcement: #565656;
+  --color-border: #ededed;
+  --color-star: #ffb801;
+  --color-white: #fff;
+
+  --shadow-card: 0 3px 10px 1px rgb(0 0 0 / 0.08);
+  --radius-sm: 5px;
+  --radius-md: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: var(--font-secondary), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+ul {
+  margin: 0;
+}
