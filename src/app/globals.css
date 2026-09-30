@@ -7,6 +7,7 @@
   --color-text: #676869;
   --color-text-muted: #828282;
   --color-text-label: #868787;
+  --color-text-soft: #6c6c6c;
   --color-announcement: #565656;
   --color-border: #ededed;
   --color-star: #ffb801;
@@ -33,6 +34,10 @@ body {
   color: var(--color-text);
   font-family: var(--font-secondary), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 img,

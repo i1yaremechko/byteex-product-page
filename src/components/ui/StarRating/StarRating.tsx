@@ -3,11 +3,12 @@ import styles from "./StarRating.module.css";
 type StarRatingProps = {
   rating?: number;
   size?: number;
+  gap?: number;
 };
 
-export function StarRating({ rating = 5, size = 11 }: StarRatingProps) {
+export function StarRating({ rating = 5, size = 11, gap = 1.5 }: StarRatingProps) {
   return (
-    <span className={styles.stars} role="img" aria-label={`${rating} out of 5 stars`}>
+    <span className={styles.stars} style={{ gap }} role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, i) => (
         <svg
           key={i}
