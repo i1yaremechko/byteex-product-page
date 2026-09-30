@@ -1,0 +1,41 @@
+.press {
+  padding-top: 15px;
+}
+
+.label {
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--color-text-label);
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 394px;
+  min-height: 35px;
+  margin: 17px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c4c4c4;
+}
+
+.dots .active {
+  background: #000;
+}

@@ -7,12 +7,24 @@ import reviewer from "@/assets/images/reviewer-jane.jpg"
 import dayNight from "@/assets/icons/day-night.png"
 import ecoCart from "@/assets/icons/eco-cart.png"
 import fabricWaves from "@/assets/icons/fabric-waves.png"
+import canadianLiving from "@/assets/logos/canadian-living.png"
+import ecoStylist from "@/assets/logos/eco-stylist.png"
+import jillianHarris from "@/assets/logos/jillian-harris.png"
 
 export type GalleryImage = {
   src: StaticImageData
   alt: string
   /** CSS object-position used when the photo is cropped to fit its frame. */
   focus?: string
+}
+
+export type PressLogo = {
+  name: string
+  src: StaticImageData
+  /** Display width in px (from the Figma frame). */
+  width: number
+  /** The design shows the logos faded. */
+  opacity: number
 }
 
 export type HeroContent = {
@@ -28,6 +40,7 @@ export type HeroContent = {
     label: string
     text: string
   }
+  press: {label: string; logos: PressLogo[]}
 }
 
 // Static content for now. Will be replaced by a headless CMS query.
@@ -71,5 +84,13 @@ export const heroContent: HeroContent = {
     rating: 5,
     label: "One of 500+ 5 Star Reviews Online",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales justo."
+  },
+  press: {
+    label: "as seen in",
+    logos: [
+      {name: "Eco-Stylist", src: ecoStylist, width: 126, opacity: 0.35},
+      {name: "Canadian Living", src: canadianLiving, width: 73, opacity: 0.45},
+      {name: "Jillian Harris", src: jillianHarris, width: 145, opacity: 0.7}
+    ]
   }
 }

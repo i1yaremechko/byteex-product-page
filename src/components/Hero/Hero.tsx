@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { ReviewCard } from "@/components/ReviewCard/ReviewCard";
 import { CtaButton } from "@/components/ui/CtaButton/CtaButton";
+import { PressStrip } from "@/components/PressStrip/PressStrip";
 import type { GalleryImage, HeroContent } from "@/content/hero";
 import styles from "./Hero.module.css";
 
@@ -66,6 +67,8 @@ export function Hero({ content }: { content: HeroContent }) {
       <div className={styles.review}>
         <ReviewCard {...review} />
       </div>
+
+      <PressStrip {...content.press} />
     </section>
   );
 }
