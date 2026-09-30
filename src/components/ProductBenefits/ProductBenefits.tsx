@@ -1,11 +1,12 @@
 import Image from "next/image";
 
+import { ProductCarousel } from "./ProductCarousel";
+import { CtaBlock } from "@/components/CtaBlock/CtaBlock";
 import wave from "@/assets/images/vector-88.png";
 import type { BenefitsContent } from "@/content/benefits";
-import { ProductCarousel } from "./ProductCarousel";
 import styles from "./ProductBenefits.module.css";
 
-export function ProductBenefits({ title, slides, benefits }: BenefitsContent) {
+export function ProductBenefits({ title, slides, initialSlide, benefits, cta }: BenefitsContent) {
   return (
     <section className={styles.section} aria-labelledby="benefits-title">
       <div className={styles.wave} aria-hidden="true">
@@ -22,7 +23,7 @@ export function ProductBenefits({ title, slides, benefits }: BenefitsContent) {
         {title}
       </h2>
 
-      <ProductCarousel slides={slides} />
+      <ProductCarousel slides={slides} initialSlide={initialSlide} />
 
       <ul className={styles.list}>
         {benefits.map(({ icon, title: name, text }) => (
@@ -35,6 +36,8 @@ export function ProductBenefits({ title, slides, benefits }: BenefitsContent) {
           </li>
         ))}
       </ul>
+
+      <CtaBlock {...cta} />
     </section>
   );
 }

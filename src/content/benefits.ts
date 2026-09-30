@@ -1,4 +1,5 @@
 import type {StaticImageData} from "next/image"
+import {ctaContent, type CtaContent} from "./cta"
 
 import cloud from "@/assets/icons/cloud.png"
 import dayNight from "@/assets/icons/day-night.png"
@@ -28,6 +29,7 @@ export type BenefitsContent = {
   /** Index of the slide shown first. */
   initialSlide: number
   benefits: Benefit[]
+  cta: CtaContent
 }
 
 const LOREM =
@@ -93,9 +95,10 @@ export const benefitsContent: BenefitsContent = {
     {icon: leaf, iconWidth: 22, title: "Made for living in.", text: LOREM},
     {
       icon: fabricWaves,
-      iconWidth: 24,
+      iconWidth: 22,
       title: "Unimaginably comfortable.",
       text: LOREM
     }
-  ]
+  ],
+  cta: ctaContent
 }

@@ -14,8 +14,10 @@ function Chevron({ direction }: { direction: "left" | "right" }) {
   );
 }
 
-export function ProductCarousel({ slides }: { slides: ProductSlide[] }) {
-  const [active, setActive] = useState(0);
+type ProductCarouselProps = { slides: ProductSlide[]; initialSlide?: number };
+
+export function ProductCarousel({ slides, initialSlide = 0 }: ProductCarouselProps) {
+  const [active, setActive] = useState(initialSlide);
   const go = (step: number) => setActive((i) => (i + step + slides.length) % slides.length);
 
   return (
@@ -24,7 +26,7 @@ export function ProductCarousel({ slides }: { slides: ProductSlide[] }) {
         <div className={styles.frame}>
           {slides.map((slide, i) => (
             <Image
-              key={slide.name}
+              key={slide.id}
               src={slide.src}
               alt={slide.alt}
               fill
@@ -37,11 +39,11 @@ export function ProductCarousel({ slides }: { slides: ProductSlide[] }) {
           <div className={styles.thumbs}>
             {slides.map((slide, i) => (
               <button
-                key={slide.name}
+                key={slide.id}
                 type="button"
                 className={`${styles.thumb} ${i === active ? styles.thumbActive : ""}`}
                 onClick={() => setActive(i)}
-                aria-label={slide.name}
+                aria-label={`${slide.name}, ${i + 1} of ${slides.length}`}
                 aria-current={i === active}
               >
                 <Image src={slide.src} alt="" fill sizes="22px" />
