@@ -1,0 +1,85 @@
+/* 303x453 frame from Figma; leaves room for the arrows on narrow screens. */
+.carousel {
+  position: relative;
+  width: min(303px, calc(100% - 84px));
+  margin: 24px auto 0;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 303 / 453;
+  overflow: hidden;
+  background: var(--color-cream);
+}
+
+.slide {
+  object-fit: cover;
+}
+
+.thumbs {
+  position: absolute;
+  right: 0;
+  bottom: 9px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 4.5px;
+}
+
+.thumb {
+  position: relative;
+  width: 22px;
+  height: 23px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.thumbActive {
+  border: 2px solid var(--color-white);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.arrow:focus-visible,
+.thumb:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+.prev {
+  left: -43px;
+}
+
+.next {
+  right: -43px;
+}
+
+.caption {
+  margin-top: 7px;
+  font-family: var(--font-secondary), system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 22px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--color-text);
+}
