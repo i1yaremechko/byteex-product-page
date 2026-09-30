@@ -1,0 +1,174 @@
+.section {
+  padding: 57px 20px 57px;
+}
+
+.title {
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--color-navy);
+}
+
+.carousel {
+  position: relative;
+  width: min(288px, calc(100% - 66px));
+  margin: 23px auto 0;
+}
+
+.track {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 1;
+  padding: 66px 24px 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  text-align: center;
+  scroll-snap-align: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.cardTitle {
+  margin-top: 5px;
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.04em;
+  color: var(--color-navy);
+}
+
+.cardText {
+  max-width: 224px;
+  margin-top: 5px;
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 23px;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+}
+
+.desktopOnly {
+  display: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.arrow:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+.prev {
+  left: -53px;
+}
+
+.next {
+  right: -53px;
+}
+
+.cta {
+  margin-top: 41px;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 75px 32px 57px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  .carousel {
+    width: 100%;
+    max-width: 1120px;
+    margin-top: 46px;
+  }
+
+  .track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 41px;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .card {
+    aspect-ratio: 346 / 321;
+    padding-top: 72px;
+  }
+
+  .highlighted {
+    background: var(--color-cream);
+  }
+
+  .cardTitle {
+    margin-top: 10px;
+  }
+
+  .cardText {
+    max-width: 296px;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: inline;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .cta {
+    margin-top: 56px;
+  }
+}
