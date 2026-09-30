@@ -40,12 +40,7 @@ export function Hero({ content }: { content: HeroContent }) {
         <span className={`${styles.band} ${styles.bandLeft}`} aria-hidden="true" />
         <span className={`${styles.band} ${styles.bandRight}`} aria-hidden="true" />
         <Photo {...gallery.left} className={styles.left} sizes="(min-width: 428px) 100px, 24vw" />
-        <Photo
-          {...gallery.center}
-          className={styles.center}
-          sizes="(min-width: 428px) 140px, 36vw"
-          priority
-        />
+        <Photo {...gallery.center} className={styles.center} sizes="(min-width: 428px) 140px, 36vw" priority />
         <Photo {...gallery.right} className={styles.right} sizes="(min-width: 428px) 100px, 24vw" />
       </div>
 

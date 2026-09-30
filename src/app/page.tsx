@@ -8,6 +8,9 @@ import { benefitsContent } from "@/content/benefits";
 import { founderContent } from "@/content/founder";
 import { heroContent } from "@/content/hero";
 import { howItWorksContent } from "@/content/how-it-works";
+import { FanReviews } from "@/components/FanReviews/FanReviews";
+import { fansContent } from "@/content/fans";
+
 
 export default function Home() {
   return (
@@ -19,6 +22,7 @@ export default function Home() {
         <ProductBenefits {...benefitsContent} />
         <FounderStory {...founderContent} />
         <HowItWorks {...howItWorksContent} />
+        <FanReviews {...fansContent} />
       </main>
     </>
   );
