@@ -14,28 +14,78 @@
 .logos {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 394px;
+  max-width: 100%;
   min-height: 35px;
   margin: 17px auto 0;
   padding: 0;
   list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.logos::-webkit-scrollbar {
+  display: none;
+}
+
+.logoItem {
+  flex: 0 0 33.333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  padding-inline: 8px;
+}
+
+.logoImage {
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .dots {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 7px;
   margin-top: 12px;
 }
 
-.dots span {
+.dot {
   width: 8px;
   height: 8px;
+  padding: 0;
+  border: none;
   border-radius: 50%;
   background: #c4c4c4;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.dots .active {
+.dot.active {
   background: #000;
+  transform: scale(1.1);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-navy, #000);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .logos {
+    max-width: 680px;
+    justify-content: space-between;
+    overflow-x: visible;
+  }
+
+  .logoItem {
+    flex: 0 1 auto;
+    padding-inline: 0;
+  }
+
+  .dots {
+    display: none;
+  }
 }

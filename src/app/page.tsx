@@ -10,7 +10,7 @@ import { heroContent } from "@/content/hero";
 export default function Home() {
   return (
     <>
-      <AnnouncementBar text={heroContent.announcement} />
+      <AnnouncementBar messages={heroContent.announcement} />
       <SiteHeader />
       <main>
         <Hero content={heroContent} />

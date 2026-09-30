@@ -10,25 +10,24 @@ import fabricWaves from "@/assets/icons/fabric-waves.png"
 import canadianLiving from "@/assets/logos/canadian-living.png"
 import ecoStylist from "@/assets/logos/eco-stylist.png"
 import jillianHarris from "@/assets/logos/jillian-harris.png"
+import ecoHub from "@/assets/logos/eco-hub.png"
+import trendHunter from "@/assets/logos/trend-hunter.png"
 
 export type GalleryImage = {
   src: StaticImageData
   alt: string
-  /** CSS object-position used when the photo is cropped to fit its frame. */
   focus?: string
 }
 
 export type PressLogo = {
   name: string
   src: StaticImageData
-  /** Display width in px (from the Figma frame). */
   width: number
-  /** The design shows the logos faded. */
   opacity: number
 }
 
 export type HeroContent = {
-  announcement: string
+  announcement: string[]
   title: string
   gallery: {left: GalleryImage; center: GalleryImage; right: GalleryImage}
   benefits: {icon: StaticImageData; text: string}[]
@@ -43,9 +42,12 @@ export type HeroContent = {
   press: {label: string; logos: PressLogo[]}
 }
 
-// Static content for now. Will be replaced by a headless CMS query.
 export const heroContent: HeroContent = {
-  announcement: "FREE SHIPPING on orders > $200",
+  announcement: [
+    "CONSCIOUSLY MADE BUTTER SOFT STAPLES FOR EVERY DAY (OR NIGHT)",
+    "FREE SHIPPING on orders > $200",
+    "easy 45 day return window."
+  ],
   title: "Don’t apologize for being comfortable.",
   gallery: {
     left: {
@@ -90,7 +92,9 @@ export const heroContent: HeroContent = {
     logos: [
       {name: "Eco-Stylist", src: ecoStylist, width: 126, opacity: 0.35},
       {name: "Canadian Living", src: canadianLiving, width: 73, opacity: 0.45},
-      {name: "Jillian Harris", src: jillianHarris, width: 145, opacity: 0.7}
+      {name: "Jillian Harris", src: jillianHarris, width: 145, opacity: 0.7},
+      {name: "The Eco Hub", src: ecoHub, width: 100, opacity: 0.5},
+      {name: "Trend Hunter", src: trendHunter, width: 100, opacity: 0.5}
     ]
   }
 }
