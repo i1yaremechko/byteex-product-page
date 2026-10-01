@@ -10,6 +10,8 @@ import { heroContent } from "@/content/hero";
 import { howItWorksContent } from "@/content/how-it-works";
 import { FanReviews } from "@/components/FanReviews/FanReviews";
 import { fansContent } from "@/content/fans";
+import { Faq } from "@/components/Faq/Faq";
+import { faqContent } from "@/content/faq";
 
 
 export default function Home() {
@@ -23,6 +25,7 @@ export default function Home() {
         <FounderStory {...founderContent} />
         <HowItWorks {...howItWorksContent} />
         <FanReviews {...fansContent} />
+        <Faq {...faqContent} />
       </main>
     </>
   );
