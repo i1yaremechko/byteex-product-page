@@ -1,0 +1,145 @@
+.section {
+  padding-top: 52px;
+}
+
+/* The flat graphic starts 27px above the end of the text, so the text sits above it. */
+.title,
+.text {
+  position: relative;
+  z-index: 1;
+  padding-inline: 20px;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.04em;
+  color: var(--color-navy);
+}
+
+.text {
+  margin-top: 9px;
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 428px;
+  aspect-ratio: 428 / 463;
+  margin: -27px auto 0;
+}
+
+.mobileImage {
+  object-fit: cover;
+}
+
+.cta {
+  position: absolute;
+  right: 0;
+  bottom: 54px;
+  left: 0;
+  padding-inline: 20px;
+}
+
+.desktopOnly,
+.desktopImage,
+.desktopCta,
+.badges {
+  display: none;
+}
+
+/* Desktop: collage image, then button, payment methods and three trust badges. */
+@media (min-width: 1024px) {
+  .section {
+    padding: 81px 32px 90px;
+    background: linear-gradient(to top,
+        #f9f0e5 0,
+        rgb(249 240 229 / 0.18) 43.05%,
+        rgb(249 240 229 / 0) 100%) bottom / 100% 507px no-repeat;
+  }
+
+  .title,
+  .text {
+    padding-inline: 0;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .text {
+    max-width: 574px;
+    margin: 13px auto 0;
+    line-height: 23px;
+  }
+
+  .mobileOnly,
+  .mobileImage {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: inline;
+  }
+
+  .stage {
+    max-width: none;
+    aspect-ratio: auto;
+    margin-top: 34px;
+  }
+
+  .desktopImage {
+    display: block;
+    width: 815px;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .desktopCta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 55px;
+  }
+
+  .payments {
+    margin-top: 6px;
+  }
+
+  .badges {
+    display: flex;
+    justify-content: center;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 28px;
+    font-family: var(--font-secondary), system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: var(--color-text);
+  }
+
+  .badge span {
+    max-width: 130px;
+  }
+
+  .badge+.badge {
+    border-left: 1px solid rgb(196 196 196 / 0.5);
+  }
+}

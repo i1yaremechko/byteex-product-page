@@ -14,6 +14,8 @@ import { Faq } from "@/components/Faq/Faq";
 import { faqContent } from "@/content/faq";
 import { GreenImpact } from "@/components/GreenImpact/GreenImpact";
 import { impactContent } from "@/content/impact";
+import { Collection } from "@/components/Collection/Collection";
+import { collectionContent } from "@/content/collection";
 
 
 export default function Home() {
@@ -29,6 +31,7 @@ export default function Home() {
         <FanReviews {...fansContent} />
         <Faq {...faqContent} />
         <GreenImpact {...impactContent} />
+        <Collection {...collectionContent} />
       </main>
     </>
   );
