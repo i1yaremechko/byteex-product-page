@@ -16,7 +16,6 @@
   color: var(--color-navy);
 }
 
-/* Collage proportions come from the 380x217 Figma group, so it scales with width. */
 .gallery {
   position: relative;
   width: 100%;
