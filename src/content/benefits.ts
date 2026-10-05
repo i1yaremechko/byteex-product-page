@@ -2,11 +2,12 @@ import type {StaticImageData} from "next/image"
 import {ctaContent, type CtaContent} from "./cta"
 
 import cloud from "@/assets/icons/cloud.png"
+import ecoCart from "@/assets/icons/eco.png"
 import dayNight from "@/assets/icons/day-night.png"
-import fabricWaves from "@/assets/icons/fabric-waves.png"
+import fabricWaves from "@/assets/icons/waves.png"
 import leaf from "@/assets/icons/leaf.png"
-import greyFull from "@/assets/images/product/grey-full.jpg"
-import robeFull from "@/assets/images/product/robe-full.jpg"
+import greyFull from "@/assets/images/benefits/active-two.jpg"
+import robeFull from "@/assets/images/benefits/active-one.png"
 
 export type ProductSlide = {
   id: string
@@ -17,8 +18,8 @@ export type ProductSlide = {
 
 export type Benefit = {
   icon: StaticImageData
-  /** Display width of the icon in px. */
   iconWidth: number
+  desktopIcon?: StaticImageData
   title: string
   text: string
 }
@@ -26,7 +27,6 @@ export type Benefit = {
 export type BenefitsContent = {
   title: string
   slides: ProductSlide[]
-  /** Index of the slide shown first. */
   initialSlide: number
   benefits: Benefit[]
   cta: CtaContent
@@ -35,7 +35,6 @@ export type BenefitsContent = {
 const LOREM =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat."
 
-// Static content for now. Will be replaced by a headless CMS query.
 export const benefitsContent: BenefitsContent = {
   title: "Loungewear you can be proud of.",
   slides: [
@@ -90,12 +89,30 @@ export const benefitsContent: BenefitsContent = {
   ],
   initialSlide: 1,
   benefits: [
-    {icon: cloud, iconWidth: 26, title: "Ethically sourced.", text: LOREM},
-    {icon: dayNight, iconWidth: 29, title: "Responsibly made.", text: LOREM},
-    {icon: leaf, iconWidth: 22, title: "Made for living in.", text: LOREM},
+    {
+      icon: cloud,
+      iconWidth: 42,
+      desktopIcon: ecoCart,
+      title: "Ethically sourced.",
+      text: LOREM
+    },
+    {
+      icon: dayNight,
+      iconWidth: 42,
+      desktopIcon: leaf,
+      title: "Responsibly made.",
+      text: LOREM
+    },
+    {
+      icon: leaf,
+      iconWidth: 42,
+      desktopIcon: dayNight,
+      title: "Made for living in.",
+      text: LOREM
+    },
     {
       icon: fabricWaves,
-      iconWidth: 22,
+      iconWidth: 42,
       title: "Unimaginably comfortable.",
       text: LOREM
     }

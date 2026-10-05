@@ -14,14 +14,22 @@ function Chevron({ direction }: { direction: "left" | "right" }) {
   );
 }
 
-type ProductCarouselProps = { slides: ProductSlide[]; initialSlide?: number };
+type ProductCarouselProps = {
+  slides: ProductSlide[];
+  initialSlide?: number;
+  className?: string;
+};
 
-export function ProductCarousel({ slides, initialSlide = 0 }: ProductCarouselProps) {
+export function ProductCarousel({
+  slides,
+  initialSlide = 0,
+  className,
+}: ProductCarouselProps) {
   const [active, setActive] = useState(initialSlide);
   const go = (step: number) => setActive((i) => (i + step + slides.length) % slides.length);
 
   return (
-    <div>
+    <div className={className}>
       <div className={styles.carousel} role="group" aria-roledescription="carousel" aria-label="Products">
         <div className={styles.frame}>
           {slides.map((slide, i) => (
@@ -30,7 +38,6 @@ export function ProductCarousel({ slides, initialSlide = 0 }: ProductCarouselPro
               src={slide.src}
               alt={slide.alt}
               fill
-              sizes="(min-width: 428px) 303px, 72vw"
               className={styles.slide}
               hidden={i !== active}
             />
@@ -46,7 +53,7 @@ export function ProductCarousel({ slides, initialSlide = 0 }: ProductCarouselPro
                 aria-label={`${slide.name}, ${i + 1} of ${slides.length}`}
                 aria-current={i === active}
               >
-                <Image src={slide.src} alt="" fill sizes="22px" />
+                <Image src={slide.src} alt="" fill />
               </button>
             ))}
           </div>

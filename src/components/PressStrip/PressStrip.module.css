@@ -15,7 +15,6 @@
   display: flex;
   align-items: center;
   max-width: 100%;
-  min-height: 35px;
   margin: 17px auto 0;
   padding: 0;
   list-style: none;
@@ -31,16 +30,19 @@
 
 .logoItem {
   flex: 0 0 33.333%;
+  max-width: 33.333%;
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: center;
   padding-inline: 8px;
+  box-sizing: border-box;
 }
 
-.logoImage {
-  height: auto;
-  max-width: 100%;
+.logoItem img {
+  width: 100% !important;
+  max-width: calc(var(--w) * 1px);
+  height: auto !important;
   object-fit: contain;
 }
 
@@ -73,16 +75,33 @@
   outline-offset: 2px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
+  .press {
+    max-width: calc(1253 * var(--px));
+    margin-inline: auto;
+    padding-top: calc(1 * var(--px));
+  }
+
+  .label {
+    font-size: max(15px, calc(20 * var(--px)));
+    line-height: 1.15;
+  }
+
   .logos {
-    max-width: 680px;
     justify-content: space-between;
+    margin-top: calc(17 * var(--px));
     overflow-x: visible;
   }
 
   .logoItem {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
+    max-width: none;
+    width: calc(var(--wd, var(--w)) * var(--px));
     padding-inline: 0;
+  }
+
+  .logoItem img {
+    max-width: 100%;
   }
 
   .dots {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, type CSSProperties } from "react";
 import Image from "next/image";
 
 import type { PressLogo } from "@/content/hero";
@@ -52,14 +52,21 @@ export function PressStrip({ label, logos }: PressStripProps) {
       <p className={styles.label}>{label}</p>
 
       <ul ref={listRef} onScroll={handleScroll} className={styles.logos}>
-        {logos.map(({ name, src, width, opacity }) => (
-          <li key={name} className={styles.logoItem}>
+        {logos.map(({ name, src, width, desktopWidth, opacity, desktopOnly }) => (
+          <li
+            key={name}
+            className={`${styles.logoItem} ${desktopOnly ? styles.desktopOnly : ""}`}
+            style={{ "--w": width, "--wd": desktopWidth } as CSSProperties}
+          >
             <Image
               src={src}
               alt={name}
-              width={width}
-              className={styles.logoImage}
-              style={{ opacity }}
+              width={desktopWidth || width}
+              style={{
+                width: "100%",
+                height: "auto",
+                opacity,
+              }}
             />
           </li>
         ))}

@@ -58,8 +58,6 @@
   place-items: center;
   width: 42px;
   height: 42px;
-  border-radius: 50%;
-  background: var(--color-cream);
 }
 
 .itemTitle {
@@ -85,4 +83,108 @@
 
 .item:last-child {
   padding-bottom: 37px;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+/* Desktop: sizes follow the 1465px canvas (--px, --edge in globals.css). The section stays full width
+   so its background fades reach the screen edges; only the content is positioned on the canvas. */
+@media (min-width: 1024px) {
+  .section {
+    display: grid;
+    grid-template-columns: calc(757 * var(--px)) calc(505 * var(--px));
+    grid-template-areas:
+      "title carousel"
+      "list carousel";
+    grid-template-rows: auto 1fr;
+    justify-content: start;
+    padding: calc(110 * var(--px)) 0 calc(54 * var(--px)) calc(var(--edge) + 136 * var(--px));
+    background: none;
+  }
+
+  .wave {
+    top: calc(-180 * var(--px));
+    height: calc(530 * var(--px));
+    background: linear-gradient(180deg,
+        #f9f0e5 0,
+        rgb(249 240 229 / 0.18) 43.05%,
+        rgb(249 240 229 / 0) 100%);
+  }
+
+  .wave img {
+    display: none;
+  }
+
+  .title {
+    grid-area: title;
+    max-width: none;
+    margin: 0;
+    font-size: max(24px, calc(32 * var(--px)));
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  .carouselArea {
+    grid-area: carousel;
+  }
+
+  .list {
+    grid-area: list;
+    max-width: calc(571 * var(--px));
+    margin-top: calc(74 * var(--px));
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: calc(42 * var(--px)) minmax(0, 1fr);
+    column-gap: calc(25 * var(--px));
+    align-items: center;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .item+.item {
+    margin-top: calc(16 * var(--px));
+    border-top: 0;
+  }
+
+  .item:last-child {
+    padding-bottom: 0;
+  }
+
+  .icon {
+    width: calc(42 * var(--px));
+    height: calc(42 * var(--px));
+  }
+
+  .itemTitle {
+    max-width: none;
+    margin: 0;
+    font-size: max(18px, calc(22 * var(--px)));
+    line-height: 1.1;
+  }
+
+  .itemText {
+    grid-column: 2;
+    max-width: calc(500 * var(--px));
+    margin-top: calc(4 * var(--px));
+    font-size: max(12px, calc(15 * var(--px)));
+    line-height: 1.53;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: block;
+  }
+
+  .cta {
+    display: none;
+  }
 }

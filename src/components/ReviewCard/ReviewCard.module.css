@@ -50,3 +50,43 @@
   letter-spacing: 0.04em;
   color: var(--color-text);
 }
+
+@media (min-width: 1024px) {
+  .card {
+    grid-template-columns: calc(40 * var(--px)) 1fr;
+    column-gap: calc(14 * var(--px));
+    row-gap: calc(10 * var(--px));
+    max-width: calc(416 * var(--px));
+    margin-inline: 0;
+    padding: calc(16 * var(--px)) calc(21 * var(--px)) calc(13 * var(--px));
+  }
+
+  .avatar {
+    width: calc(40 * var(--px));
+    height: calc(40 * var(--px));
+  }
+
+  .rating {
+    gap: calc(8 * var(--px));
+  }
+
+  .rating svg {
+    width: calc(11 * var(--px));
+    height: calc(11 * var(--px));
+  }
+
+  .label {
+    font-size: max(10px, calc(11 * var(--px)));
+    line-height: 1.82;
+  }
+
+  .name {
+    font-size: max(13px, calc(15 * var(--px)));
+    line-height: 1.53;
+  }
+
+  .text {
+    font-size: max(11px, calc(12 * var(--px)));
+    line-height: 1.92;
+  }
+}

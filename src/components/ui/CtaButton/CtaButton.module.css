@@ -26,3 +26,18 @@
   outline: 2px solid var(--color-navy);
   outline-offset: 3px;
 }
+
+@media (min-width: 1024px) {
+  .button {
+    gap: calc(16 * var(--px));
+    max-width: calc(356 * var(--px));
+    height: calc(56 * var(--px));
+    font-size: max(14px, calc(18 * var(--px)));
+    line-height: 1.28;
+  }
+
+  .button svg {
+    width: max(18px, calc(24 * var(--px)));
+    height: auto;
+  }
+}

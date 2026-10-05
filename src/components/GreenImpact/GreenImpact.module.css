@@ -56,6 +56,8 @@
 
 @media (min-width: 1024px) {
   .section {
+    max-width: 1465px;
+    margin: auto;
     padding: 38px 32px 46px;
   }
 

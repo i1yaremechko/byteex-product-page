@@ -1,12 +1,25 @@
 .header {
   display: flex;
   justify-content: center;
-  padding: 13px 20px 14px;
+  width: 200px;
+  margin: auto;
+  padding: 14px 0;
+}
+
+.header a {
+  display: block;
+  width: 100%;
+}
+
+.header img {
+  width: 100%;
+  height: auto;
 }
 
 @media (min-width: 1024px) {
   .header {
-    justify-content: start;
-    padding: 33px 96px 62px;
+    width: calc(200 * var(--px));
+    margin: calc(33 * var(--px)) 0 0 calc(var(--edge) + 96 * var(--px));
+    padding: 0;
   }
 }

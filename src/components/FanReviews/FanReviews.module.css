@@ -173,9 +173,14 @@
 }
 
 @media (min-width: 1024px) {
+  .section {
+    max-width: 1465px;
+    margin: auto;
+  }
+
   .title {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: 32px;
+    line-height: 40px;
   }
 
   .text {

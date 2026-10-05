@@ -28,33 +28,30 @@
 }
 
 .center {
-  top: 6.9%;
-  left: 15.5%;
-  width: 69%;
-  height: 85.5%;
+  top: 6.89%;
+  left: 15.37%;
+  width: 69.01%;
+  aspect-ratio: 238 / 310;
 }
 
 .topLeft,
 .bottomRight {
   z-index: 1;
-}
-
-.topLeft {
   border: 4px solid var(--color-surface);
 }
 
 .topLeft {
   top: 0;
   left: 0;
-  width: 29.5%;
-  height: 29.7%;
+  width: 29.29%;
+  aspect-ratio: 101 / 108;
 }
 
 .bottomRight {
-  top: 69.2%;
-  left: 68.1%;
-  width: 31.9%;
-  height: 30.9%;
+  top: 69.19%;
+  left: 68.14%;
+  width: 31.90%;
+  aspect-ratio: 110 / 112;
   box-shadow: var(--shadow-card);
 }
 
@@ -70,4 +67,85 @@
 
 .story p+p {
   margin-top: 23px;
+}
+
+.desktopOnly,
+.desktopCta {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    display: grid;
+    grid-template-columns: calc(523 * var(--px)) calc(715 * var(--px));
+    grid-template-areas:
+      "collage title"
+      "collage story"
+      "collage cta";
+    grid-template-rows: auto auto 1fr;
+    justify-content: start;
+    column-gap: calc(103 * var(--px));
+    padding: calc(83 * var(--px)) 0 calc(56 * var(--px)) calc(var(--edge) + 123 * var(--px));
+  }
+
+  .title {
+    grid-area: title;
+    margin: calc(24 * var(--px)) 0 0;
+    font-size: max(24px, calc(32 * var(--px)));
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  .collage {
+    grid-area: collage;
+    max-width: none;
+    aspect-ratio: 524 / 664;
+    margin: 0;
+  }
+
+  .center {
+    top: 7%;
+    left: 15%;
+    width: 73%;
+    height: 86%;
+  }
+
+  .topLeft {
+    width: 31.2%;
+    height: 26%;
+  }
+
+  .bottomRight {
+    top: 74.6%;
+    left: 76.6%;
+    width: 23.4%;
+    height: 25.4%;
+  }
+
+  .story {
+    grid-area: story;
+    max-width: 619px;
+    margin: calc(32 * var(--px)) 0 0;
+    font-size: max(12px, calc(15 * var(--px)));
+    line-height: 1.53;
+  }
+
+  .story p+p {
+    margin-top: 1.53em;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: block;
+  }
+
+  .desktopCta {
+    display: block;
+    grid-area: cta;
+    width: calc(356 * var(--px));
+    margin-top: calc(32 * var(--px));
+  }
 }

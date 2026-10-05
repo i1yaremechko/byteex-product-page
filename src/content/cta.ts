@@ -4,7 +4,6 @@ export type CtaContent = {
   reviews: {rating: number; label: string}
 }
 
-// Shared by every "Customize Your Outfit" block on the page.
 export const ctaContent: CtaContent = {
   label: "Customize Your Outfit",
   href: "#collection",

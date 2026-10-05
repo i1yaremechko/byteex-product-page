@@ -1,13 +1,15 @@
 import type {StaticImageData} from "next/image"
 
-import greyFull from "@/assets/images/product/grey-full.jpg"
-import founderRobe from "@/assets/images/founder-robe.png"
-import founderWindow from "@/assets/images/founder-window.png"
+import topLeftMobile from "@/assets/images/founder/top-left-mobile.png"
+import centerMobile from "@/assets/images/founder/center-mobile.png"
+import bottomRightMobile from "@/assets/images/founder/bottom-right-mobile.png"
+import {ctaContent, type CtaContent} from "./cta"
 
 export type FounderPhoto = {
   src: StaticImageData
   alt: string
   focus?: string
+  desktopSrc?: StaticImageData
 }
 
 export type FounderContent = {
@@ -18,23 +20,23 @@ export type FounderContent = {
     bottomRight: FounderPhoto
   }
   paragraphs: string[]
+  cta: CtaContent
 }
 
-// Static content for now. Will be replaced by a headless CMS query.
 export const founderContent: FounderContent = {
   title: "Be your best self.",
   photos: {
     topLeft: {
-      src: greyFull,
+      src: topLeftMobile,
       alt: "Woman in a grey knit lounge set",
       focus: "50% 0%"
     },
     center: {
-      src: founderRobe,
+      src: centerMobile,
       alt: "Woman in a white robe with her hands behind her head"
     },
     bottomRight: {
-      src: founderWindow,
+      src: bottomRightMobile,
       alt: "Woman in loungewear standing by a bright window"
     }
   },
@@ -46,5 +48,6 @@ export const founderContent: FounderContent = {
     "Fusce non ante velit. Sed auctor odio eu semper molestie. Nam mattis, sapien eget lobortis fringilla, eros ipsum tristique tellus, ac convallis urna massa at nibh.",
     "Duis non fermentum augue. Vivamus laoreet aliquam risus, sed euismod leo aliquam ut. Vivamus in felis eu lacus feugiat aliquam nec in sapien.",
     "Cras mattis varius mollis."
-  ]
+  ],
+  cta: ctaContent
 }

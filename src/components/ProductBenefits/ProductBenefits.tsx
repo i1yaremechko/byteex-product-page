@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-import { ProductCarousel } from "./ProductCarousel";
-import { CtaBlock } from "@/components/CtaBlock/CtaBlock";
 import wave from "@/assets/images/vector-88.png";
+import { CtaBlock } from "@/components/CtaBlock/CtaBlock";
 import type { BenefitsContent } from "@/content/benefits";
+import { ProductCarousel } from "./ProductCarousel";
 import styles from "./ProductBenefits.module.css";
 
 export function ProductBenefits({ title, slides, initialSlide, benefits, cta }: BenefitsContent) {
@@ -23,13 +23,32 @@ export function ProductBenefits({ title, slides, initialSlide, benefits, cta }: 
         {title}
       </h2>
 
-      <ProductCarousel slides={slides} initialSlide={initialSlide} />
+      <div className={styles.carouselArea}>
+        <ProductCarousel slides={slides} initialSlide={initialSlide} />
+      </div>
 
       <ul className={styles.list}>
-        {benefits.map(({ icon, title: name, text }) => (
+        {benefits.map(({ icon, iconWidth, desktopIcon, title: name, text }) => (
           <li key={name} className={styles.item}>
             <span className={styles.icon}>
-              <Image src={icon} alt="" unoptimized />
+              <Image
+                className={desktopIcon ? styles.mobileOnly : undefined}
+                src={icon}
+                alt=""
+                width={iconWidth}
+                style={{ height: "auto" }}
+                unoptimized
+              />
+              {desktopIcon && (
+                <Image
+                  className={styles.desktopOnly}
+                  src={desktopIcon}
+                  alt=""
+                  width={iconWidth}
+                  style={{ height: "auto" }}
+                  unoptimized
+                />
+              )}
             </span>
             <h3 className={styles.itemTitle}>{name}</h3>
             <p className={styles.itemText}>{text}</p>
@@ -37,7 +56,9 @@ export function ProductBenefits({ title, slides, initialSlide, benefits, cta }: 
         ))}
       </ul>
 
-      <CtaBlock {...cta} />
+      <div className={styles.cta}>
+        <CtaBlock {...cta} />
+      </div>
     </section>
   );
 }

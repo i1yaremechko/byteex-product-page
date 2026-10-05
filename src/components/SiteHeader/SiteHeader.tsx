@@ -8,7 +8,7 @@ export function SiteHeader() {
   return (
     <header className={styles.header}>
       <Link href="/" aria-label="Byteex home">
-        <Image src={logo} alt="Byteex" width={200} height={35} priority />
+        <Image src={logo} alt="Byteex" priority />
       </Link>
     </header>
   );

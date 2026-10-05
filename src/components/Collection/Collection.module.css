@@ -35,10 +35,65 @@
   max-width: 428px;
   aspect-ratio: 428 / 463;
   margin: -27px auto 0;
+  /* Figma "Vector 99": 507px cream fade, cut off by the end of the page. */
+  background: linear-gradient(to top,
+      #f9f0e5 0,
+      rgb(249 240 229 / 0.18) 43.05%,
+      rgb(249 240 229 / 0) 100%) top / 100% 507px no-repeat;
 }
 
-.mobileImage {
-  object-fit: cover;
+/* Mobile collage: positions are percentages of the 428x463 Figma frame. */
+.collage {
+  position: absolute;
+  inset: 0;
+}
+
+.band {
+  position: absolute;
+  top: 25.5%;
+  width: 16.4%;
+  height: 19.9%;
+  background: linear-gradient(to top, rgb(249 240 229 / 0.7), rgb(249 240 229 / 0.217));
+}
+
+.bandLeft {
+  left: 7%;
+}
+
+.bandRight {
+  left: 76.6%;
+}
+
+.frame {
+  position: absolute;
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+
+.left,
+.right {
+  top: 19.4%;
+  height: 32%;
+}
+
+.left {
+  left: 13.6%;
+  width: 20.1%;
+}
+
+.right {
+  left: 66.4%;
+  width: 19.9%;
+}
+
+.center {
+  top: 12.5%;
+  left: 33.6%;
+  z-index: 1;
+  width: 32.7%;
+  height: 45.4%;
+  border: 2.5px solid var(--color-white);
 }
 
 .cta {
@@ -50,7 +105,6 @@
 }
 
 .desktopOnly,
-.desktopImage,
 .desktopCta,
 .badges {
   display: none;
@@ -81,8 +135,7 @@
     line-height: 23px;
   }
 
-  .mobileOnly,
-  .mobileImage {
+  .mobileOnly {
     display: none;
   }
 
@@ -90,18 +143,49 @@
     display: inline;
   }
 
+  /* Desktop collage: positions are percentages of the 815x383 Figma frame. */
   .stage {
-    max-width: none;
-    aspect-ratio: auto;
+    max-width: 815px;
+    aspect-ratio: 815 / 383;
     margin-top: 34px;
+    background: none;
   }
 
-  .desktopImage {
-    display: block;
-    width: 815px;
-    max-width: 100%;
-    height: auto;
-    margin-inline: auto;
+  .band {
+    top: 25.1%;
+    width: 17.2%;
+    height: 51.2%;
+  }
+
+  .bandLeft {
+    left: 0;
+  }
+
+  .bandRight {
+    left: 82.8%;
+  }
+
+  .left,
+  .right {
+    top: 9.4%;
+    height: 82.8%;
+  }
+
+  .left {
+    left: 8.5%;
+    width: 25.6%;
+  }
+
+  .right {
+    left: 65.8%;
+    width: 25.8%;
+  }
+
+  .center {
+    top: 2.1%;
+    left: 34.9%;
+    width: 30.3%;
+    height: 97.9%;
   }
 
   .desktopCta {

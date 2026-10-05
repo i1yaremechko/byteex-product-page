@@ -16,6 +16,9 @@
   --shadow-card: 0 3px 10px 1px rgb(0 0 0 / 0.08);
   --radius-sm: 5px;
   --radius-md: 8px;
+
+  --px: calc(min(100cqw, 1465px) / 1465);
+  --edge: max(0px, calc((100cqw - 1465px) / 2));
 }
 
 *,
@@ -29,6 +32,7 @@ html {
 }
 
 body {
+  container-type: inline-size;
   margin: 0;
   background: var(--color-white);
   color: var(--color-text);

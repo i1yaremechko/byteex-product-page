@@ -31,7 +31,6 @@ export function HowItWorks({ title, steps, cta }: HowItWorksContent) {
   function scrollByStep(direction: -1 | 1) {
     const track = trackRef.current;
     if (!track) return;
-    // One card is as wide as the track, so one step = track width + gap.
     const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     track.scrollBy({
