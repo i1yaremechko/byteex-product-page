@@ -8,6 +8,13 @@ A responsive eCommerce product landing page built from the provided Figma design
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · CSS Modules · `next/image` · `next/font`
 
+## 🛠️ CMS & Панель управління
+
+Контент сторінки керується через **Sanity Studio**.
+
+* **Local Studio:** http://localhost:3000/studio
+* **Production Studio:** https://byteex-product-page-theta.vercel.app/studio
+
 ---
 
 ## Features
