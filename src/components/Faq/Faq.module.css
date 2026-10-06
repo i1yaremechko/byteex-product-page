@@ -88,22 +88,24 @@
 
 @media (min-width: 1024px) {
   .section {
-    padding: 59px 32px 80px;
+    max-width: 1465px;
+    margin-inline: auto;
+    padding: calc(59 * var(--px)) 0 calc(80 * var(--px));
   }
 
   .layout {
     display: grid;
-    grid-template-columns: minmax(0, 630px) 430px;
-    column-gap: 90px;
+    grid-template-columns: calc(630 * var(--px)) calc(430 * var(--px));
+    column-gap: calc(90 * var(--px));
     justify-content: center;
     align-items: start;
   }
 
   .title {
     max-width: none;
-    margin: 0 0 49px;
-    font-size: 32px;
-    line-height: 40px;
+    margin: 0 0 calc(49 * var(--px));
+    font-size: max(24px, calc(32 * var(--px)));
+    line-height: 1.25;
     text-align: left;
     text-transform: none;
   }
@@ -113,10 +115,28 @@
     margin: 0;
   }
 
+  .summary {
+    gap: calc(16 * var(--px));
+    padding: calc(22 * var(--px)) 0 calc(25 * var(--px));
+  }
+
+  .question {
+    font-size: max(15px, calc(18 * var(--px)));
+    line-height: 1.33;
+  }
+
+  .icon {
+    width: max(14px, calc(18 * var(--px)));
+    height: auto;
+    margin-right: calc(8 * var(--px));
+  }
+
   .answer {
-    max-width: 567px;
-    font-size: 15px;
-    line-height: 22px;
+    max-width: calc(567 * var(--px));
+    margin-top: calc(-18 * var(--px));
+    padding-bottom: calc(18 * var(--px));
+    font-size: max(12px, calc(15 * var(--px)));
+    line-height: 1.47;
   }
 
   .mobileOnly {
@@ -131,11 +151,12 @@
     display: none;
   }
 
+  /* 430x645 collage from Figma: every position and size is scaled with the canvas. */
   .collage {
     position: relative;
     display: block;
-    width: 430px;
-    height: 645px;
+    width: calc(430 * var(--px));
+    height: calc(645 * var(--px));
   }
 
   .collage img {
@@ -149,41 +170,39 @@
   }
 
   .panelLeft {
-    top: 67px;
-    left: 30px;
-    width: 149px;
-    height: 187px;
+    top: calc(67 * var(--px));
+    left: calc(30 * var(--px));
+    width: calc(149 * var(--px));
+    height: calc(187 * var(--px));
   }
 
   .panelRight {
-    bottom: 126px;
-    right: 58px;
-    width: 134px;
-    height: 189px;
+    right: calc(58 * var(--px));
+    bottom: calc(126 * var(--px));
+    width: calc(134 * var(--px));
+    height: calc(189 * var(--px));
   }
 
   .top {
-    top: 1px;
-    left: 221px;
-    width: 167px;
-    height: 253px !important;
+    top: calc(1 * var(--px));
+    left: calc(221 * var(--px));
+    width: calc(167 * var(--px));
+    height: calc(253 * var(--px)) !important;
     object-fit: cover;
     object-position: top;
   }
 
   .center {
-    top: 129px;
-    left: 80px;
-    width: 227px;
-    height: 355px;
-    box-shadow: var(--shadow-card);
+    top: calc(129 * var(--px));
+    left: calc(80 * var(--px));
     z-index: 1;
+    width: calc(227 * var(--px));
+    box-shadow: var(--shadow-card);
   }
 
   .bottom {
-    top: 440px;
+    top: calc(440 * var(--px));
     left: 0;
-    width: 216px;
-    height: 159px;
+    width: calc(216 * var(--px));
   }
 }

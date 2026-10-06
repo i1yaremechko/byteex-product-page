@@ -1,18 +1,17 @@
 import Image from "next/image";
 
-import wave from "@/assets/images/vector-88.png";
 import { CtaBlock } from "@/components/CtaBlock/CtaBlock";
 import type { BenefitsContent } from "@/content/benefits";
 import { ProductCarousel } from "./ProductCarousel";
 import styles from "./ProductBenefits.module.css";
 
-export function ProductBenefits({ title, slides, initialSlide, benefits, cta }: BenefitsContent) {
+export function ProductBenefits({ title, wave, slides, initialSlide, benefits, cta }: BenefitsContent) {
   return (
     <section className={styles.section} aria-labelledby="benefits-title">
       <div className={styles.wave} aria-hidden="true">
         <Image
-          src={wave}
-          alt=""
+          src={wave.src}
+          alt={wave.alt}
           fill
           sizes="100vw"
           style={{ objectFit: "cover", objectPosition: "center top" }}

@@ -175,17 +175,20 @@
 @media (min-width: 1024px) {
   .section {
     max-width: 1465px;
-    margin: auto;
+    margin-inline: auto;
+    padding-bottom: calc(57 * var(--px));
   }
 
   .title {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: max(24px, calc(32 * var(--px)));
+    line-height: 1.25;
   }
 
   .text {
-    max-width: 590px;
-    margin-top: 22px;
+    max-width: calc(590 * var(--px));
+    margin-top: calc(22 * var(--px));
+    font-size: max(12px, calc(15 * var(--px)));
+    line-height: 1.53;
   }
 
   .photos {
@@ -193,8 +196,8 @@
     grid-template-columns: repeat(11, minmax(0, 1fr));
     grid-template-rows: none;
     grid-auto-columns: auto;
-    gap: 4px;
-    margin-top: 54px;
+    gap: calc(4 * var(--px));
+    margin-top: calc(54 * var(--px));
     padding: 0;
     overflow: visible;
   }
@@ -205,14 +208,14 @@
 
   .reviews {
     width: 100%;
-    max-width: 1120px;
-    margin-top: 77px;
+    max-width: calc(1120 * var(--px));
+    margin-top: calc(77 * var(--px));
   }
 
   .track {
     display: grid;
-    grid-template-columns: repeat(3, 337px);
-    gap: 43px;
+    grid-template-columns: repeat(3, calc(337 * var(--px)));
+    gap: calc(43 * var(--px));
     align-items: start;
     justify-content: center;
     margin: 0;
@@ -223,6 +226,32 @@
 
   .card {
     order: var(--desktop-order);
+    padding: calc(26 * var(--px)) calc(32 * var(--px)) calc(24 * var(--px));
+  }
+
+  .header {
+    gap: calc(11 * var(--px));
+  }
+
+  .avatar {
+    width: calc(36 * var(--px));
+    height: calc(36 * var(--px));
+  }
+
+  .stars svg {
+    width: calc(10 * var(--px));
+    height: calc(10 * var(--px));
+  }
+
+  .name {
+    font-size: max(13px, calc(15 * var(--px)));
+    line-height: 1.53;
+  }
+
+  .review {
+    margin-top: calc(15 * var(--px));
+    font-size: max(11px, calc(12 * var(--px)));
+    line-height: 1.67;
   }
 
   .prev,
@@ -232,6 +261,6 @@
   }
 
   .cta {
-    margin-top: 63px;
+    margin-top: calc(63 * var(--px));
   }
 }

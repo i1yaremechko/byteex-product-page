@@ -1,6 +1,7 @@
 import type {StaticImageData} from "next/image"
 import {ctaContent, type CtaContent} from "./cta"
 
+import wave from "@/assets/images/benefits/vector-88.png"
 import cloud from "@/assets/icons/cloud.png"
 import ecoCart from "@/assets/icons/eco.png"
 import dayNight from "@/assets/icons/day-night.png"
@@ -8,6 +9,11 @@ import fabricWaves from "@/assets/icons/waves.png"
 import leaf from "@/assets/icons/leaf.png"
 import greyFull from "@/assets/images/benefits/active-two.jpg"
 import robeFull from "@/assets/images/benefits/active-one.png"
+
+export type Wave = {
+  src: StaticImageData
+  alt: string
+}
 
 export type ProductSlide = {
   id: string
@@ -26,6 +32,7 @@ export type Benefit = {
 
 export type BenefitsContent = {
   title: string
+  wave: Wave
   slides: ProductSlide[]
   initialSlide: number
   benefits: Benefit[]
@@ -37,6 +44,10 @@ const LOREM =
 
 export const benefitsContent: BenefitsContent = {
   title: "Loungewear you can be proud of.",
+  wave: {
+    src: wave,
+    alt: "A wavy line that separates the benefits section from the product carousel above it"
+  },
   slides: [
     {
       id: "look-1",
