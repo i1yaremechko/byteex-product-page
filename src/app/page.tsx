@@ -1,38 +1,37 @@
-import { AnnouncementBar } from "@/components/AnnouncementBar/AnnouncementBar";
-import { FounderStory } from "@/components/FounderStory/FounderStory";
-import { Hero } from "@/components/Hero/Hero";
-import { HowItWorks } from "@/components/HowItWorks/HowItWorks";
-import { ProductBenefits } from "@/components/ProductBenefits/ProductBenefits";
-import { SiteHeader } from "@/components/SiteHeader/SiteHeader";
-import { benefitsContent } from "@/content/benefits";
-import { founderContent } from "@/content/founder";
-import { heroContent } from "@/content/hero";
-import { howItWorksContent } from "@/content/how-it-works";
-import { FanReviews } from "@/components/FanReviews/FanReviews";
-import { fansContent } from "@/content/fans";
-import { Faq } from "@/components/Faq/Faq";
-import { faqContent } from "@/content/faq";
-import { GreenImpact } from "@/components/GreenImpact/GreenImpact";
-import { impactContent } from "@/content/impact";
-import { Collection } from "@/components/Collection/Collection";
-import { collectionContent } from "@/content/collection";
+import {AnnouncementBar} from '@/components/AnnouncementBar/AnnouncementBar'
+import {Collection} from '@/components/Collection/Collection'
+import {FanReviews} from '@/components/FanReviews/FanReviews'
+import {Faq} from '@/components/Faq/Faq'
+import {FounderStory} from '@/components/FounderStory/FounderStory'
+import {GreenImpact} from '@/components/GreenImpact/GreenImpact'
+import {Hero} from '@/components/Hero/Hero'
+import {HowItWorks} from '@/components/HowItWorks/HowItWorks'
+import {ProductBenefits} from '@/components/ProductBenefits/ProductBenefits'
+import {SiteHeader} from '@/components/SiteHeader/SiteHeader'
+import {client} from '@/sanity/client'
+import {mapLandingPage} from '@/sanity/landing-page'
+import {LANDING_PAGE_QUERY} from '@/sanity/queries'
 
+export const revalidate = 60
 
-export default function Home() {
-  return (
-    <>
-      <AnnouncementBar messages={heroContent.announcement} />
-      <SiteHeader />
-      <main>
-        <Hero content={heroContent} />
-        <ProductBenefits {...benefitsContent} />
-        <FounderStory {...founderContent} />
-        <HowItWorks {...howItWorksContent} />
-        <FanReviews {...fansContent} />
-        <Faq {...faqContent} />
-        <GreenImpact {...impactContent} />
-        <Collection {...collectionContent} />
-      </main>
-    </>
-  );
+export default async function Home() {
+  const document = await client.fetch(LANDING_PAGE_QUERY)
+  const content = mapLandingPage(document)
+
+  if (!content) return <main>Landing page content has not been published yet.</main>
+
+  return <>
+    <AnnouncementBar messages={content.announcements} />
+    <SiteHeader />
+    <main>
+      <Hero content={content.hero} />
+      <ProductBenefits {...content.benefits} />
+      <FounderStory {...content.founder} />
+      <HowItWorks {...content.howItWorks} />
+      <FanReviews {...content.fans} />
+      <Faq {...content.faq} />
+      <GreenImpact {...content.impact} />
+      <Collection {...content.collection} />
+    </main>
+  </>
 }

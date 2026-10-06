@@ -4,6 +4,8 @@ A responsive eCommerce product landing page built from the provided Figma design
 
 **Live demo:** https://byteex-product-page-theta.vercel.app/
 
+**Figma:** https://www.figma.com/design/S2YR3ijlPpGp9KWx4jl0qz/Byteex---Standard-Development-Test?node-id=0-1&p=f&t=QRNg6zPUikBuLqeT-0
+
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · CSS Modules · `next/image` · `next/font`
 
 ---
@@ -59,13 +61,29 @@ Each section is a presentational component that receives its data as props. The 
 
 - **Fonts.** The design uses Sofia Pro and Suisse Int'l, which are commercial. Nunito Sans and Inter are used as stand-ins (`src/app/fonts`); replace the two files to use the real fonts.
 - **Content.** Text and images follow the design, including its placeholder copy (lorem ipsum, "Jane, S.").
-- **Content source.** Content currently lives in typed modules in `src/content`. See the section below for the headless CMS.
+- **Content source.** The initial source content remains in `src/content` for the one-time seed script. The rendered page reads from Sanity.
 
 ## Headless CMS
 
-<!-- Update this section once the CMS is connected. -->
+The site uses a `landingPage` singleton document. Its nested objects mirror the page sections: `announcements`, `hero`, `press`, `benefits`, `founder`, `howItWorks`, `fans`, `faq`, `impact`, and `collection`. Text and content images are editable in Sanity; design icons and the site logo remain local assets.
 
-The page content is described by the types in `src/content` and is designed to be fetched from a headless CMS. After the integration this section will document the schema, the environment variables (`.env.example`) and how to run the studio.
+Copy `.env.example` to `.env.local` and provide these values:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
+# Required only when importing the initial content
+SANITY_API_WRITE_TOKEN=your-editor-token
+```
+
+After configuring a Sanity project, import the existing page content and start the app:
+
+```bash
+npm run seed
+npm run dev
+```
+
+Open [http://localhost:3000/studio](http://localhost:3000/studio) to edit the singleton. Add your Vercel deployment URL under **Sanity Manage → API → CORS Origins**, then set `NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET` in Vercel as well. The page revalidates CMS content every 60 seconds.
 
 ## Deployment
 
